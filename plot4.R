@@ -15,8 +15,9 @@ SetData$Datetime <- as.POSIXct(datetime)
 
 globalActivePower <- as.numeric(SetData$Global_active_power)
 
-##plot 4
-par(bg="white", ps=12,mfcol=c(2,2), mar=c(4,4,1,1))
+
+png("plot4.png", width=480, height=480)
+par(bg="white", ps=12,mfcol=c(2,2))
 
 #graph 1 : top left
 plot(SetData$Datetime, globalActivePower, type="l", xlab="", ylab="Global Active Power")
@@ -32,10 +33,7 @@ legend("topright", bty = "n", legend = c("Sub_metering_1", "Sub_metering_2", "Su
 #graph 3 top right
 plot(SetData$Datetime, SetData$Voltage,  type="l", ylab="Voltage ", xlab="datetime")
 
-
 #graph 4 : bottom right
 plot(SetData$Datetime, SetData$Global_reactive_power, type="l", ylab="Global_reactive_power",xlab="datetime")
 
-
-dev.copy(png, file="plot4.png", height=480, width=480)
 dev.off()
